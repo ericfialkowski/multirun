@@ -111,13 +111,7 @@ func main() {
 		}
 	}()
 
-	// Determine ID format based on instance count
-	idFmt := "%d"
-	if count >= 100 {
-		idFmt = "%03d"
-	} else if count >= 10 {
-		idFmt = "%02d"
-	}
+	idFmt := idFormat(count)
 
 	// Start all instances
 	for i := 0; i < count; i++ {
@@ -132,12 +126,7 @@ func main() {
 		}
 
 		// Set prefix
-		idStr := fmt.Sprintf(idFmt, inst.id)
-		if prefix != "" {
-			inst.prefix = strings.ReplaceAll(prefix, "{id}", idStr)
-		} else {
-			inst.prefix = fmt.Sprintf("[%s]", idStr)
-		}
+		inst.prefix = formatPrefix(prefix, inst.id, idFmt)
 
 		instances[i] = inst
 
@@ -180,6 +169,25 @@ func main() {
 
 	// Wait for all output to be processed
 	wg.Wait()
+}
+
+// idFormat returns a fmt format string for instance IDs based on the total count.
+func idFormat(count int) string {
+	if count >= 100 {
+		return "%03d"
+	} else if count >= 10 {
+		return "%02d"
+	}
+	return "%d"
+}
+
+// formatPrefix builds the display prefix for an instance.
+func formatPrefix(custom string, id int, idFmt string) string {
+	idStr := fmt.Sprintf(idFmt, id)
+	if custom != "" {
+		return strings.ReplaceAll(custom, "{id}", idStr)
+	}
+	return fmt.Sprintf("[%s]", idStr)
 }
 
 func streamOutput(inst *instance, reader io.Reader, writer io.Writer, wg *sync.WaitGroup) {
