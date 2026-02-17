@@ -15,14 +15,22 @@ A Go CLI tool that runs multiple instances of a command simultaneously and color
 
 ## Installation
 
+### Homebrew
+
 ```bash
-go build -o multirun multirun.go
+brew install ericfialkowski/tap/multirun
 ```
 
-Or install directly:
+### From source
 
 ```bash
 go install github.com/ericfialkowski/multirun@latest
+```
+
+Or build manually:
+
+```bash
+go build -o multirun multirun.go
 ```
 
 ## Usage
