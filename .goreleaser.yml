@@ -34,5 +34,6 @@ homebrew_casks:
   - repository:
       owner: ericfialkowski
       name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     homepage: https://github.com/ericfialkowski/multirun
     description: Run multiple commands concurrently
