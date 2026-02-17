@@ -20,7 +20,7 @@ go build -o multirun multirun.go
 Or install directly:
 
 ```bash
-go install
+go install github.com/ericfialkowski/multirun@latest
 ```
 
 ## Usage
