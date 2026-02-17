@@ -1,5 +1,7 @@
 # Multirun - Run Multiple Command Instances with Color-Coded Output
 
+[![Test](https://github.com/ericfialkowski/multirun/actions/workflows/test.yml/badge.svg)](https://github.com/ericfialkowski/multirun/actions/workflows/test.yml)
+
 A Go CLI tool that runs multiple instances of a command simultaneously and color-codes the output from each instance.
 
 ## Features
