@@ -84,16 +84,7 @@ The tool cycles through 36 colors in three style groups:
 
 ## Example Output
 
-```
-[1] PING google.com (142.250.80.46): 56 data bytes
-[2] PING google.com (142.250.80.46): 56 data bytes
-[3] PING google.com (142.250.80.46): 56 data bytes
-[1] 64 bytes from 142.250.80.46: icmp_seq=0 ttl=117 time=10.123 ms
-[2] 64 bytes from 142.250.80.46: icmp_seq=0 ttl=117 time=10.456 ms
-[3] 64 bytes from 142.250.80.46: icmp_seq=0 ttl=117 time=10.789 ms
-```
-
-(Each instance will be in a different color)
+![Example output](preview.png)
 
 ## License
 
